@@ -1,0 +1,41 @@
+        /*格式：选择器 {样式}*/
+
+        /* 1.标签选择器 */
+        p {
+            color: rgb(41, 31, 223);
+            font-size: 50px;
+            font-family: '微软雅黑';
+        }
+        h4 {
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 70px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        a {
+            text-decoration: none;
+        }
+        /* 2.类选择器 */
+        .color {
+            color: rgb(39, 162, 57);
+        }
+        .font {
+            font-size: 50px;
+            font-family: "微软雅黑";
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(161, 38, 167);
+        }
+        .container {
+            display: flex; /* 创建 Flexbox 布局 */
+            justify-content: center; /* 水平居中对齐 */
+            align-items: center; /* 垂直居中对齐 */
+        }
+
+        /* 3.ID 选择器 */
+        #div_1 {
+            color: rgb(206, 33, 76);
+        }

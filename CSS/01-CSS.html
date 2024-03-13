@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*格式：选择器 {样式}*/
+
+        /* 1.标签选择器 */
+        p {
+            color: red;
+            font-size: 50px;
+            font-family: '楷体';
+        }
+        h4 {
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 70px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        a {
+            text-decoration: none;
+        }
+        /* 2.类选择器 */
+        .color {
+            color: blue;
+        }
+        .font {
+            font-size: 50px;
+            font-family: "楷体";
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .container {
+            display: flex; /* 创建 Flexbox 布局 */
+            justify-content: center; /* 水平居中对齐 */
+            align-items: center; /* 垂直居中对齐 */
+        }
+
+        /* 3.ID 选择器 */
+        #div_1 {
+            color: yellow;
+        }
+    </style>
+
+    <!-- 外部样式表 -->
+    <!-- <link rel="stylesheet" href="01-CSS.css"> -->
+</head>
+
+<body>
+    <h4>CSS 样式练习</h4>
+    <hr>
+    <p align="center">该段文字的颜色是红色的！</p>
+
+    <div align="center" class="color font">该段文字的颜色是蓝色的！</div>
+    <div class="container"><div class="box"></div></div>
+    <div align="center" id="div_1" class="font">该段文字的颜色是黄色的！</div>
+    <!-- 行内样式表 -->
+    <div align="center" style="color: aqua; font-size: 50px; font-family: 楷体;">该段文字的颜色是青色的！</div>
+</body>
+
+</html>
