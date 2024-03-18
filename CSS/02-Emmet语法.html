@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        /* 1.后代选择器 */
+        ul li {
+            color: rgb(103, 7, 7);
+        }
+
+        .nav div div {
+            color: rgb(103, 7, 7);
+            font-size: 200px;
+        }
+
+        /* 2.子选择器 */
+        div>p {
+            color: rgb(103, 7, 95);
+            font-size: 200px;
+        }
+
+        /* 3.并集选择器 */
+        div,
+        span,
+        .ul li {
+            font-size: 100px;
+            color: rgb(103, 7, 95);
+        }
+
+        /* 4.伪类选择器 */
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: orange;
+        }
+
+        a:hover {
+            color: skyblue;
+        }
+
+        a:active {
+            color: green;
+        }
+
+        input:focus {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 多个有顺序类名标签快速生成：.class$*4 -->
+    <div class="class1"></div>
+    <div class="class2"></div>
+    <div class="class3"></div>
+    <div class="class4"></div>
+    <ul>
+        <li>后代选择器</li>
+        <li>后代选择器</li>
+        <li>后代选择器</li>
+        <li>后代选择器</li>
+    </ul>
+
+    <div class="nav">
+        <div>
+            <a href="#">test</a>
+            <div>test</div>
+        </div>
+    </div>
+
+    <div>
+        <p>子选择器 1</p>
+        <p>子选择器 2</p>
+    </div>
+    <div>并集选择器</div>
+    <span>并集选择器</span>
+    <ul class="ul">
+        <li>并集选择器</li>
+    </ul>
+    <a href="#">未访问链接</a>
+    <form >
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </form>
+</body>
+
+</html>
