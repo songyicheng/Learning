@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .left {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
+        .right {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            float: right;
+        }
+        .father {
+            width: 1200px;
+            height: 460px;
+            background-color: #81b2cc;
+            margin: 220px auto 10px;
+        }
+
+        .box {
+            width: 1200px;
+            height: 285px;
+            background-color: greenyellow;
+            margin: 0 auto;
+        }
+
+        li {
+            list-style: none;
+            width: 270px;
+            height: 285px;
+            background-color: #dc6969;
+            float: left;
+            margin-right: 40px;
+        }
+        .rli {
+            margin-right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 align="center">浮动</h3>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="father">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <ul class="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="rli"></li>
+    </ul>
+</body>
+
+</html>
