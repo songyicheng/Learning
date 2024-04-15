@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            height: 50px;
+            background-color: rgb(172, 172, 172);
+            text-align: center;
+            line-height: 50px;
+        }
+        .banner {
+            width: 980px;
+            height: 150px;
+            background-color: rgb(172, 172, 172);
+            margin: 10px auto;
+            text-align: center;
+            line-height: 150px;
+        }
+        .box {
+            width: 980px;
+            height: 200px;
+            background-color: #fff;
+            margin: 10px auto;
+        }
+
+        div ul {
+            list-style: none;
+            float: left;
+            width: 225px;
+            height: 200px;
+            background-color: rgb(172, 172, 172);
+            margin-right: 26.6px;
+            text-align: center;
+            line-height: 200px;
+        }
+        div .last {
+            margin-right: 0;
+        }
+        .footer {
+            height: 150px;
+            background-color: rgb(172, 172, 172);
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h3 align="center">网页布局</h3>
+    <div class="top">top</div>
+    <div class="banner">banner</div>
+    <div class="box">
+        <ul>1</ul>
+        <ul>2</ul>
+        <ul>3</ul>
+        <ul class="last">4</ul>
+    </div>
+    <div class="footer">footer</div>
+</body>
+</html>
