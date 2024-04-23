@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横向滚动页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 40px;
+        }
+
+        .tb-promo {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+        }
+
+        img {
+            height: 100%;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 180px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .pro-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 100px;
+            height: 20px;
+            margin-left: -50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        .pro-nav li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 5px 0;
+            margin-left: 12px;
+            background-color: #fff;
+            list-style: none;
+            border-radius: 5px;
+        }
+        
+        /* 注意层叠性的权重问题 */
+        .pro-nav .select {
+            background-color: #c37633;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center">淘宝滚动页</h2>
+    <div class="tb-promo">
+        <img src="11-综合案例/images/banner.jpg" alt="" align="center">
+        <a href="#" class="prev"> < </a>
+        <a href="#" class="next"> > </a>
+        <ul class="pro-nav">
+            <li class="select"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
