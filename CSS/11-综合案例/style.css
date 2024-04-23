@@ -251,6 +251,7 @@ a {
 }
 
 .box .box-bd ul li {
+    position: relative;
     float: left;
     width: 200px;
     height: 300px;
@@ -264,9 +265,22 @@ a {
     margin-right: 0;
 }
 
-.box .box-bd ul li img {
+.box .box-bd ul li > img {
     width: 100%;
     border-radius: 10px;
+}
+
+.box .box-bd ul li em {
+    position: absolute;
+    right: -4px;
+    top: 4px;
+}
+
+.box .box-bd ul li em div{
+    width: 20px;
+    height: 20px;
+    background-color: #e85827;
+    font-style: normal;
 }
 
 .box .box-bd ul li h4 {
