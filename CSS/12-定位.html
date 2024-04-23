@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>定位</title>
     <style>
+        body {
+            height: 1000px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            width: 500px;
+            height: 50px;
+            background-color: #8c4d8d;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 50px;
+        }
         .box1 {
+            position: relative;
+            top: 80px;
+            left: 100px;
             width: 200px;
             height: 200px;
             background-color: #002fa7;
-            position: relative;
-            top: 100px;
-            left: 100px;
+            text-align: center;
+            line-height: 200px;
         }
 
         .box2 {
+            position: static;
             width: 200px;
             height: 200px;
             background-color: #008c8c;
+            text-align: center;
+            line-height: 200px;
         }
 
         .son {
-            position:absolute;
+            position: absolute;
             top: 50px;
             left: 50px;
             width: 200px;
             height: 200px;
             background-color: #ba3939;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: #ccc344;
+            line-height: 200px;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="son"></div>
+    <h2 align="center">定位</h2>
+    <div class="nav">粘性定位</div>
+    <div class="box1">相对定位</div>
+    <div class="box2">静态定位</div>
+    <div class="son">绝对定位</div>
+    <div class="fixed">固定定位</div>
 </body>
+
 </html>
