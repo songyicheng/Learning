@@ -104,6 +104,10 @@ a {
     color: #666;
 }
 
+.user img {
+    vertical-align: middle;
+}
+
 .banner {
     height: 420px;
     background-color: #bfccd9;
