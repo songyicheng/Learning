@@ -21,6 +21,27 @@
         span {
             font-family: 'icomoon';
         }
+
+        .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .triangle {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            width: 0;
+            height: 0;
+            /* 兼容性 */
+            line-height: 0;
+            font-size: 0;
+
+            border: 10px solid transparent;
+            border-left-color: red;
+        }
     </style>
 </head>
 
@@ -30,6 +51,10 @@
     <span></span>
     <span></span>
     <span></span>
+    <h2>三角做法</h2>
+    <div class="box">
+        <div class="triangle"></div>
+    </div>
 </body>
 
 </html>
