@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素显示与隐藏</title>
+    <style>
+        .pic {
+            position: relative;
+            width: 480px;
+            height: 320px;
+            margin: 20px auto;
+        }
+
+        .pic img {
+            height: 100%;
+        }
+
+        .play {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4) url(11-综合案例/images/user.png) no-repeat center;
+            background-size:20%;
+        }
+
+        .pic:hover .play {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center">元素显示与隐藏</h2>
+    <div class="pic">
+        <img src="11-综合案例/images/banner.jpg" alt="">
+        <div class="play"></div>
+    </div>
+</body>
+
+</html>
