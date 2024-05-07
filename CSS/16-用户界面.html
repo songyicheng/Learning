@@ -16,6 +16,35 @@
             resize: none;
             outline: none;
         }
+
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background-color: #b57676;
+            line-height: 25px;
+        }
+
+        .one {
+            /* 文本一行内显示 */
+            white-space: nowrap;
+            /* 超出部分隐藏 */
+            overflow: hidden;
+            /* 省略号代替超出部分 */
+            text-overflow: ellipsis;
+        }
+
+        .many {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* 弹性伸缩盒子模型显示 */
+            display:-webkit-box;
+            /* 限制在一个块元素显示的文本的行数 */
+            -webkit-line-clamp: 4;
+            /* 设置或检索伸缩盒对象的子元素的排列方式 */
+            -webkit-box-orient: vertical;
+        }
+
     </style>
 </head>
 
@@ -33,6 +62,14 @@
     <input type="text">
     <h3>3.文本域取消拖拽</h3>
     <textarea name="" id="" cols="30" rows="10"></textarea>
+    <h3>4.文字溢出</h3>
+    <div class="one">
+        一二三四五，六七八九十。
+    </div>
+
+    <div class="many">
+        一二三四五，六七八九十。一二三四五，六七八九十。此处省略
+    </div>
 </body>
 
 </html>
