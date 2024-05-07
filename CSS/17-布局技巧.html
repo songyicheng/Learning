@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局技巧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 2px solid red;
+            margin-left: -2px;
+        }
+
+        ul li:hover {
+            position: relative;
+            /* z-index：1; */
+            border: 2px solid rgb(57, 114, 213);
+        }
+
+        ul:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .box {
+            width: 150px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: #af4141;
+        }
+
+        img {
+            float: left;
+            width: 50%;
+        }
+
+        .pages {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .pages a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .pages .edge {
+            width: 100px;
+        }
+
+        .pages .choose {
+            border: none;
+        }
+
+        .pages input {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .pages button {
+            width: 50px;
+            height: 20px;
+
+        }
+
+        .triangel {
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 0;
+            border-right: 20px solid #fff;
+            /* border-left: 50px solid #2c8f2c; */
+            border-top: 50px solid transparent;
+            /* border-bottom: 50px solid #32a6d0; */
+        }
+
+        .price {
+            width: 160px;
+            height: 50px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            line-height: 50px;
+        }
+
+        .price .left {
+            position: relative;
+            float: left;
+            width: 90px;
+            height: 100%;
+            background-color: #a22222;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class="box">
+        <div class="pic"><img src="11-综合案例/images/bilibili.png" alt=""></div>
+        <p>这是一段测试文字</p>
+    </div>
+    <div class="pages">
+        <a href="#" class="edge"> &lt;&lt; 上一页</a>
+        <a href="#">1</a>
+        <a href="#" class="choose">2</a>
+        <a href="#">3</a>
+        <a href="#" class="choose">···</a>
+        <a href="#" class="edge"> 下一页 &gt;&gt;</a>
+        跳转到第
+        <input type="text">
+        页
+        <button>确定</button>
+    </div>
+    <div class="price">
+        <span class="left">
+            ￥999
+            <i class="triangel"></i>
+        </span>
+        <!-- <div class="triangel"></div> -->
+        <span class="right" style="text-decoration: line-through;">￥9999</span>
+    </div>
+
+</body>
+
+</html>
