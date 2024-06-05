@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 新特性</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?9l3i7v');
+            src: url('fonts/icomoon.eot?9l3i7v#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?9l3i7v') format('truetype'),
+                url('fonts/icomoon.woff?9l3i7v') format('woff'),
+                url('fonts/icomoon.svg?9l3i7v#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        /* 属性选择器 */
+        input[placeholder] {
+            color: blue;
+        }
+
+        /* 结构伪类选择器 */
+        ul li:first-child {
+            color: red;
+        }
+
+        ul li:last-child {
+            color: green;
+        }
+
+        ul li:nth-child(2) {
+            color: yellow;
+        }
+
+        ul li:nth-child(even) {
+            background-color: aquamarine;
+        }
+
+        ul li:nth-child(2n+1) {
+            background-color: pink;
+        }
+
+        section div:nth-of-type(2) {
+            background-color: pink;
+        }
+
+        .chose {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .chose::before {
+            content: 'before';
+        }
+
+        .chose::after {
+            position: absolute;
+            right: 5px;
+            content: '\ea42';
+            font-family: 'icomoon';
+            line-height: 50px;
+        }
+
+        img {
+            filter: blur(5px);
+
+        }
+
+        img:hover {
+            filter: blur(0);
+        }
+
+        .tran {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .pro {
+            position: absolute;
+            top: 0;
+            width: 0px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: yellow;
+            transition: width 2s;
+        }
+
+        .tran:hover .pro {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入关键词">
+    <input type="text">
+    <ul>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+        <li>第四个</li>
+    </ul>
+    <section>
+        <p>1</p>
+        <p>2</p>
+        <div>3</div>
+        <div>4</div>
+    </section>
+    <div class="chose">伪元素选择器</div>
+    <img src="../HTML/img/010.png" alt="">
+    <div class="tran">
+        请将鼠标移至此处
+        <div class="pro"></div>
+    </div>
+</body>
+
+</html>
