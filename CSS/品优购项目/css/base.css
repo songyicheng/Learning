@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 也可通过逗号将所有用到的标签列出，渲染效率相对更高 */
+
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* .clearfix {
+    *zoom: 1;
+} */
+
+body {
+    background-color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
