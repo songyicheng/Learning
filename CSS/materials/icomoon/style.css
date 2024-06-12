@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?9l3i7v');
-  src:  url('fonts/icomoon.eot?9l3i7v#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?9l3i7v') format('truetype'),
-    url('fonts/icomoon.woff?9l3i7v') format('woff'),
-    url('fonts/icomoon.svg?9l3i7v#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?6c4vxi');
+  src:  url('fonts/icomoon.eot?6c4vxi#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?6c4vxi') format('truetype'),
+    url('fonts/icomoon.woff?6c4vxi') format('woff'),
+    url('fonts/icomoon.svg?6c4vxi#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-apacheairflow:before {
+  content: "\e901";
+  color: #007a88;
+}
+.icon-electron:before {
+  content: "\e902";
+  color: #47848f;
+}
+.icon-obsstudio:before {
+  content: "\e903";
+}
+.icon-playstation:before {
+  content: "\e904";
+  color: #003791;
+}
+.icon-steam:before {
+  content: "\e905";
+}
+.icon-windows:before {
+  content: "\e906";
+  color: #0078d6;
+}
+.icon-zhihu:before {
+  content: "\e907";
+  color: #0084ff;
+}
 .icon-home:before {
   content: "\e900";
 }
@@ -138,4 +164,7 @@
 }
 .icon-windows8:before {
   content: "\eac2";
+}
+.icon-cart:before {
+  content: "\e93a";
 }
