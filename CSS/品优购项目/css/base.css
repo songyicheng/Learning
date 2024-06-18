@@ -39,7 +39,12 @@ a {
     color: black;
 }
 
-i,em {
+a:hover {
+    color: #c81623;
+}
+
+i,
+em {
     font-style: normal;
 }
 
