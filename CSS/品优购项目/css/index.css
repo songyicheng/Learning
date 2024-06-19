@@ -1,0 +1,232 @@
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+}
+
+.main .focus {
+    position: relative;
+    width: 720px;
+    height: 100%;
+}
+
+.main .newsflash {
+    width: 250px;
+    height: 100%;
+}
+
+.focus img {
+    width: 720px;
+    height: 455px;
+}
+
+.focus .prev,
+.next {
+    position: absolute;
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.focus .prev {
+    left: 10px;
+}
+
+.focus .next {
+    right: 10px;
+}
+
+.focus .pro-nav {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.focus .pro-nav li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 5px 0;
+    margin-left: 12px;
+    background-color: #fff;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.focus .pro-nav li:nth-child(1) {
+    background-color: #c37633;
+}
+
+.newsflash .news {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.new_hd {
+    height: 33px;
+    border-bottom: 1px dotted #e4e4e4;
+    line-height: 33px;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.new_hd a {
+    font-size: 12px;
+}
+
+.new_hd a::after {
+    content: '\ea42';
+    font-family: 'icomoon';
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.new_bd {
+    padding: 5px 15px 0;
+}
+
+.new_bd a {
+    display: block;
+    height: 24px;
+    width: 200px;
+    line-height: 24px;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newsflash .life {
+    height: 210px;
+    border-left: 1px solid #e4e4e4;
+}
+
+
+.life li {
+    float: left;
+    height: 70px;
+    width: 25%;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+}
+
+.life li i {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    margin-top: 12px;
+    background: url(../images/icons.png) no-repeat;
+}
+
+.life li p {
+    font-size: 14px;
+}
+
+.life li:nth-child(1) i {
+    background-position: -19px -15px;
+}
+
+.life li:nth-child(2) i {
+    background-position: -80px -18px;
+}
+
+.life li:nth-child(2) {
+    position: relative;
+}
+
+.life li em {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: greenyellow;
+    background: url(../images/jian.jpg) no-repeat;
+    width: 12px;
+    height: 15px;
+}
+
+.life li:nth-child(3) i {
+    background-position: -142px -16px;
+}
+
+.life li:nth-child(4) i {
+    background-position: -205px -16px;
+}
+
+.life li:nth-child(5) i {
+    background-position: -17px -88px;
+}
+
+.life li:nth-child(6) i {
+    background-position: -80px -88px;
+}
+
+.life li:nth-child(7) i {
+    background-position: -142px -88px;
+}
+
+.life li:nth-child(8) i {
+    background-position: -205px -88px;
+}
+
+.life li:nth-child(9) i {
+    background-position: -17px -160px;
+}
+
+.life li:nth-child(10) i {
+    background-position: -79px -158px;
+}
+
+.life li:nth-child(11) i {
+    background-position: -142px -160px;
+}
+
+.life li:nth-child(12) i {
+    background-position: -205px -160px;
+}
+
+.newsflash .ad {
+    margin-top: 5px;
+}
+
+.recommand {
+    height: 163px;
+    margin-top: 12px;
+    background-color: #ebebeb;
+}
+
+.recom_left {
+    height: 163px;
+    width: 205px;
+    background-color: #5c5251;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.recom_right ul li {
+    position: relative;
+    float: left;
+}
+.recom_right ul li img {
+    height: 163px;
+    width: 248px;
+}
+.recom_right ul li:nth-child(-n+3)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 1px;
+    height: 145px;
+    background-color: #ddd;
+}
