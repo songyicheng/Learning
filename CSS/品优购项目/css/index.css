@@ -217,10 +217,12 @@
     position: relative;
     float: left;
 }
+
 .recom_right ul li img {
     height: 163px;
     width: 248px;
 }
+
 .recom_right ul li:nth-child(-n+3)::after {
     content: '';
     position: absolute;
@@ -229,4 +231,30 @@
     width: 1px;
     height: 145px;
     background-color: #ddd;
+}
+
+.jiadian .box_hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+    line-height: 30px;
+}
+
+.jiadian .box_hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+    font-weight: normal;
+}
+
+.jiadian .box_hd .tab_list {
+    float: right;
+}
+
+.jiadian .box_hd .tab_list ul li {
+    float: left;
+    font-size: 12px;
+}
+
+.jiadian .box_hd .tab_list ul li a {
+    margin: 0 15px;
 }
