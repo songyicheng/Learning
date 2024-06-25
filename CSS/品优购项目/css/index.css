@@ -276,6 +276,7 @@
     background-color: #f9f9f9;
     height: 360px;
     text-align: center;
+    overflow:hidden;
 }
 
 .box_bd .tab_content .tab_list_item > div:nth-child(1) ul {
@@ -293,14 +294,49 @@
 
 .box_bd .tab_content .tab_list_item > div:nth-child(2) {
     width: 330px;
+    overflow:hidden;
 }
 
 .box_bd .tab_content .tab_list_item > div:nth-child(n+3) {
     width: 220px;
     border-right: 1px solid #ccc;
+    overflow:hidden;
+}
+
+.floor img {
+    transition: all .5s;
+}
+
+.floor img:hover {
+    margin-left: 5px;
 }
 
 .imga {
     display: block;
     border-bottom:  1px solid #ccc;
+}
+
+/* 固定菜单栏 */
+.fixed {
+    position: fixed;
+    top: 190px;
+    left: 50%;
+    margin-left: -676px
+}
+
+.fixed li {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.fixed li:nth-child(1) {
+    background-color: #b1191a;
+}
+
+.fixed li:nth-child(1) a {
+    color: #fff;
 }
