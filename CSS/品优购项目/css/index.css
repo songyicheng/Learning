@@ -233,28 +233,74 @@
     background-color: #ddd;
 }
 
-.jiadian .box_hd {
+.box_hd {
     height: 30px;
     border-bottom: 2px solid #c81623;
     line-height: 30px;
 }
 
-.jiadian .box_hd h3 {
+.box_hd h3 {
     float: left;
     font-size: 18px;
     color: #c81623;
     font-weight: normal;
 }
 
-.jiadian .box_hd .tab_list {
+.box_hd .tab_list {
     float: right;
 }
 
-.jiadian .box_hd .tab_list ul li {
+.box_hd .tab_list ul li {
     float: left;
     font-size: 12px;
 }
 
-.jiadian .box_hd .tab_list ul li a {
+.box_hd .tab_list ul li a {
     margin: 0 15px;
+}
+
+.floor .w {
+    margin-top: 30px;
+}
+
+.box_bd {
+    height: 360px;
+}
+
+.box_bd .tab_content .tab_list_item > div {
+    float: left;
+}
+
+.box_bd .tab_content .tab_list_item > div:nth-child(1) {
+    width: 210px;
+    background-color: #f9f9f9;
+    height: 360px;
+    text-align: center;
+}
+
+.box_bd .tab_content .tab_list_item > div:nth-child(1) ul {
+    margin-left: 14px;
+}
+.box_bd .tab_content .tab_list_item > div:nth-child(1) ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 33px;
+    margin-right: 13px;
+}
+
+.box_bd .tab_content .tab_list_item > div:nth-child(2) {
+    width: 330px;
+}
+
+.box_bd .tab_content .tab_list_item > div:nth-child(n+3) {
+    width: 220px;
+    border-right: 1px solid #ccc;
+}
+
+.imga {
+    display: block;
+    border-bottom:  1px solid #ccc;
 }
