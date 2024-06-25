@@ -1,0 +1,108 @@
+.nav {
+    overflow: hidden;
+}
+
+.sk {
+    position: absolute;
+    left: 190px;
+    top: 40px;
+    padding: 3px 0 0 14px;
+    border-left: 1px solid #c81523;
+}
+
+.sk_list ul li {
+    float: left;
+}
+
+.sk_list ul li a {
+    display: block;
+    padding: 0 30px;
+    line-height: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.sk_list ul li a:hover {
+    color: #c81623;
+}
+
+.sk_con ul li {
+    float: left;
+}
+
+.sk_con ul li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 52px;
+}
+
+.sk_con ul li:last-child a::after {
+    content: '\ea43';
+    font-family: 'icomoon';
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.sk_bd ul li {
+    float: left;
+    width: 290px;
+    height: 460px;
+    margin-right: 13px;
+}
+
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.sk_bd ul li img {
+    width: 100%;
+}
+
+.sk_bd .sk_bd_describe {
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.sk_bd .newPrice {
+    font-size: 22px;
+    color: #c81523;
+    margin-left: 10px;
+}
+
+.sk_bd .oldPrice {
+    font-size: 14px;
+}
+
+.sk_bd .sold,.Unsold {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.sk_bd .progress_bar {
+position: relative;
+margin-top: 6px;
+margin-left: 4px;
+width: 130px;
+height: 10px;
+border: 1px solid #ed282e;
+border-radius: 8px;
+}
+
+.sk_bd .progress_bar2 {
+position: absolute;
+top: 0;
+width: 100px;
+height: 8px;
+border-radius: 8px;
+background-color: #ed282e;
+}
+
+.sk_bd input {
+    width: 100%;
+    height: 50px;
+    background-color: #b1191a;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 10px;
+}
