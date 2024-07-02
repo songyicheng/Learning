@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 转换</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            border: 1px solid black;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            text-align: center;
+            perspective: 500px;
+        }
+
+        .box:hover {
+            transform: rotate3d(0, 1, 0, 60deg);
+        }
+
+        .square1 {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            width: 100px;
+            height: 100px;
+            background-color: #fcefe8;
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            transform: translate3d(0px, 0px, 50px);
+            transition: all 1s;
+            text-align: center;
+            color: #000;
+            font-size: 10px;
+            line-height: 80px;
+        }
+
+        .square1:hover {
+            transform: rotate3d(1, 1, 1, 90deg);
+            background-color: pink;
+        }
+
+        .square2 {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            width: 100px;
+            height: 100px;
+            background-color: #4a010a;
+            transform: translate3d(0px, 0px, 40px) rotate3d(1, 0, 0, 45deg);
+        }
+
+        .box2 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            /* border: 1px solid black; */
+            transition: all 1s;
+            transform-style: preserve-3d;
+            text-align: center;
+            line-height: 200px;
+            transition: all 1s;
+            perspective: 500px;
+        }
+
+        .box2:hover {
+            transform: rotateY(-180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            color: #000;
+        }
+
+        .front {
+            background-color: #4a010a;
+            /* transform:translateZ(1px); */
+            z-index: 1;
+            backface-visibility: hidden;
+            color: #fff;
+        }
+
+        .back {
+            background-color: #fcefe8;
+            transform: rotateY(180deg);
+        }
+
+        .rotate {
+            perspective: 500px;
+        }
+        .box3 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            /* border: 1px solid black; */
+            transition: all 1s;
+            transform-style: preserve-3d;
+            text-align: center;
+            line-height: 200px;
+            transition: all 1s;
+        }
+
+        .box3:hover {
+            transform: rotateX(90deg);
+        }
+
+        .up,
+        .down {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            color: #000;
+        }
+
+        .up {
+            background-color: #4a010a;
+            /* transform:translateZ(1px); */
+            color: #fff;
+            transform: translateZ(100px);
+        }
+
+        .down {
+            background-color: #fcefe8;
+            transform: translateY(50%) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        试试将鼠标移至此！
+        <div class="square1">
+            试试将鼠标移至此！
+        </div>
+        <div class="square2"></div>
+    </div>
+
+    <div class="box2">
+        <div class="front">
+            我是正面！
+        </div>
+        <div class="back">
+            我是反面！
+        </div>
+    </div>
+
+    <div class="rotate">
+        <div class="box3">
+            <div class="up">
+                我是前面！
+            </div>
+            <div class="down">
+                我是下面！
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
