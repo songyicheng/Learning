@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.字面量；
+        var obj1 = {
+            obj_name: 'obj1',
+            age: 18,
+            fun1: function () {
+                console.log('hello!');
+            }
+        }
+        // 调用方法
+        console.log(obj1.obj_name);
+        console.log(obj1['age']);
+        obj1.fun1();
+
+        // 2.new Object；
+        var obj2 = new Object();
+        obj2.obj_name = 'obj2';
+        obj2.age = 16;
+        obj2.fun1 = function () {
+            console.log('hello!');
+        }
+        // 调用方法
+        console.log(obj2.obj_name);
+        console.log(obj2['age']);
+        obj2.fun1();
+
+        // 3.构造函数；
+        function Obj_build(obj_name, age) {
+            this.obj_name = obj_name;
+            this.age = age;
+            this.fun1 = function () {
+                console.log('hello!');
+            }
+        }
+        var obj3 = new Obj_build('obj3', 14);
+        var obj4 = new Obj_build('obj4', 12);
+        // 调用方法
+        console.log(obj3.obj_name);
+        console.log(obj3['age']);
+        obj3.fun1();
+        console.log(obj4.obj_name);
+        console.log(obj4['age']);
+        obj4.fun1();
+
+        for (k in obj4) {
+            console.log(k);//属性名
+            console.log(obj4[k]);//属性值
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
