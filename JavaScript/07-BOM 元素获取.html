@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">1234</div>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var obj1 = document.getElementById('div');
+        console.dir(obj1);
+
+        var elementId = document.getElementById('ul');
+        var obj2 = document.getElementsByTagName('li');
+        console.log(obj2);
+        for (var i = 0; i < obj2.length; i++) {
+            console.log(obj2[i]);
+        }
+        var obj3 = elementId.getElementsByTagName('li');
+        console.log(obj3);
+    </script>
+</body>
+
+</html>
