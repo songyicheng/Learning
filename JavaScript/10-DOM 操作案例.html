@@ -9,14 +9,53 @@
         .red {
             background-color: red;
         }
+
         .white {
             background-color: #fff;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        .box {
+            height: 40px;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .current {
+            background-color: red;
+        }
+
+        .div1 {
+            display: none;
+            height: 200px;
+            width: 200px;
+            background-color: greenyellow;
+            margin: 0 auto;
+        }
+
+        .div2 {
+            display: none;
+            height: 200px;
+            width: 200px;
+            background-color: rgb(0, 213, 255);
+            margin: 0 auto;
         }
     </style>
 </head>
 
 <body>
-    <table border="1" cellspacing="0" cellpadding="5" width="400">
+    <table border="1" cellspacing="0" cellpadding="5" width="400" align="center">
         <thead>
             <tr>
                 <th><input type="checkbox" id="all"></th>
@@ -79,12 +118,47 @@
             body[i].onclick = function () {
                 var flag = true;
                 for (var i = 0; i < body.length; i++) {
-                    if(!body[i].checked) {
+                    if (!body[i].checked) {
                         flag = false;
                         break;
                     }
                 }
                 all.checked = flag;
+            }
+        }
+    </script>
+    <div index="1"></div>
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.getAttribute('index'));
+        div.setAttribute('index', 2);
+        console.log(div.getAttribute('index'));
+        div.removeAttribute('index');
+    </script>
+
+    <div class="box">
+        <ul>
+            <li>页面一</li>
+            <li>页面二</li>
+        </ul>
+    </div>
+    <div class="item div1"></div>
+    <div class="item div2"></div>
+    <script>
+        // 3.Tab 栏切换
+        var lis = document.querySelectorAll('li');
+        var divs = document.querySelectorAll('.item');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+                for (var i = 0; i < lis.length; i++) {
+                    divs[i].style.display = 'none';
+                }
+                divs[this.getAttribute('index')].style.display = 'block';
             }
         }
     </script>
