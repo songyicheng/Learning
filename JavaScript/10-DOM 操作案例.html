@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+        .white {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellspacing="0" cellpadding="5" width="400">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="all"></th>
+                <th>属性一</th>
+                <th>属性二</th>
+                <th>属性三</th>
+                <th>属性四</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>1</td>
+                <td>aaa</td>
+                <td>!!!</td>
+                <td>SSS</td>
+            </tr>
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>2</td>
+                <td>bbb</td>
+                <td>???</td>
+                <td>RRR</td>
+            </tr>
+            <tr>
+                <th><input type="checkbox" checked></th>
+                <td>3</td>
+                <td>ccc</td>
+                <td>...</td>
+                <td>QQQ</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 1.表格经过变色
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                // for (var i =0; i < trs.length; i++) {
+                //     trs[i].style.backgroundColor = '#fff';
+                // }
+
+                // this.style.backgroundColor = 'red';
+                this.className = 'red';
+            }
+            trs[i].onmouseout = function () {
+                // this.style.backgroundColor = '#fff';
+                this.className = 'white';
+            }
+        }
+        // 2.全选按钮选中
+        var all = document.querySelector('#all');
+        var body = document.querySelector('#body').querySelectorAll('input');
+        all.onclick = function () {
+            for (var i = 0; i < body.length; i++) {
+                body[i].checked = this.checked;//checked为布尔属性，属性值不用加引号 this.checked=false;
+            }
+        }
+        for (var i = 0; i < body.length; i++) {
+            body[i].onclick = function () {
+                var flag = true;
+                for (var i = 0; i < body.length; i++) {
+                    if(!body[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                all.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>
