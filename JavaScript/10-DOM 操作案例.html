@@ -149,7 +149,7 @@
         var lis = document.querySelectorAll('li');
         var divs = document.querySelectorAll('.item');
         for (var i = 0; i < lis.length; i++) {
-            lis[i].setAttribute('index', i);
+            lis[i].setAttribute('data-index', i);
             lis[i].onclick = function () {
                 for (var i = 0; i < lis.length; i++) {
                     lis[i].className = '';
@@ -158,9 +158,10 @@
                 for (var i = 0; i < lis.length; i++) {
                     divs[i].style.display = 'none';
                 }
-                divs[this.getAttribute('index')].style.display = 'block';
+                divs[this.getAttribute('data-index')].style.display = 'block';
             }
         }
+        console.log(lis[0].dataset.index);
     </script>
 </body>
 
