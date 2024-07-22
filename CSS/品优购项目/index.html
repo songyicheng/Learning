@@ -71,9 +71,20 @@
         </div>
         <!-- search 搜索框模块 -->
         <div class="search">
-            <input type="search" name="" id="" placeholder="数码相机">
+            <input type="search" name="" id="search" placeholder="数码相机">
             <input type="button" value="搜索">
         </div>
+        <script>
+            var search = document.querySelector('#search');
+            search.onfocus = function() {
+                if(this.placeholder === '数码相机') {
+                    this.placeholder = '';
+                }
+            }
+            search.onblur = function() {
+                this.placeholder = '数码相机';
+            }
+        </script>
         <!-- hotwords 模块 -->
         <div class="hotwords">
             <a href="#" class="style_red">优惠购首发</a>

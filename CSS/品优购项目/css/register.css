@@ -70,6 +70,7 @@ input[type="password"] {
     width: 242px;
     height: 30px;
     border: 1px solid #ccc;
+    padding-left: 10px;
 }
 
 .reg_form .error {
