@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="div">1234</div>
+    <div class="div" id="div">1234</div>
     <ol>
         <li>1</li>
         <li>2</li>
@@ -22,9 +22,11 @@
         <li>4</li>
     </ul>
     <script>
+        // 1.id
         var obj1 = document.getElementById('div');
         console.dir(obj1);
 
+        // 2.标签名
         var elementId = document.getElementById('ul');
         var obj2 = document.getElementsByTagName('li');
         console.log(obj2);
@@ -33,6 +35,20 @@
         }
         var obj3 = elementId.getElementsByTagName('li');
         console.log(obj3);
+
+        // 3.类名
+        var obj4 = document.getElementsByClassName('div');
+        console.log(obj4);
+
+        // 4.指定选择器
+        var obj5 = document.querySelector('.div');
+        console.log(obj5);
+        var obj6 = document.querySelectorAll('ul li');
+        console.log(obj6);
+
+        // 5.特殊元素
+        console.log(document.body);
+        console.log(document.documentElement);
     </script>
 </body>
 
