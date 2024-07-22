@@ -23,6 +23,14 @@
             margin: 0 auto;
         }
 
+        .change {
+            position: relative;
+            background-color: rgb(136, 255, 0);
+            width: 600px;
+            height: 375px;
+            margin: 0 auto;
+        }
+
         i {
             display: block;
             position: absolute;
@@ -41,7 +49,7 @@
 <body>
     <button>显示当前时间戳</button>
     <div>当前时间戳</div>
-    <div class="closs-pic">
+    <div class="closs-pic" id="closs-pic">
         <img src="images/1.jpg" alt="">
         <i>x</i>
     </div>
@@ -79,15 +87,19 @@
             this.disabled = true;
         }
 
-        var bgc = document.getElementsByClassName('closs-pic');
-        console.log(bgc[0]);
-        bgc[0].onclick = function() {
+        var bgc0 = document.getElementsByClassName('closs-pic');
+        console.log(bgc0[0]);
+        var bgc = document.getElementById('closs-pic');
+        bgc.onclick = function() {
             this.style.backgroundColor = '#fff';
+        }
+        bgc.onmouseover = function() {
+            this.className = 'change';
         }
 
         var closs = document.querySelector('i');
         closs.onclick = function() {
-            bgc[0].style.display = 'none';
+            bgc.style.display = 'none';
         }
     </script>
 </body>

@@ -32,6 +32,20 @@
                             <input type="text" id="tel">
                             <span class="error"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
                         </li>
+                        <script>
+                            var tel = document.getElementById('tel');
+                            var span = document.querySelector('span');
+                            tel.onblur = function() {
+                                if(tel.value.length < 6 || tel.value.length > 11) {
+                                    span.innerHTML = '<i class="error_icon"></i>手机号码格式不正确，请重新输入';
+                                    span.className = 'error';
+                                }
+                                else {
+                                    span.innerHTML = '<i class="success_icon"></i>手机号码格式正确';
+                                    span.className = 'success';
+                                }
+                            }
+                        </script>
                         <li>
                             <label for="mes">短信验证码：</label>
                             <input type="text" id="mes">
