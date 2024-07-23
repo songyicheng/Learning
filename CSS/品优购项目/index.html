@@ -34,21 +34,37 @@
                 <ul>
                     <li><a href="#">我的订单</a></li>
                     <li></li>
-                    <li class="arrow-icon"><a href="#">我的品优购</a></li>
+                    <li>
+                        <a href="#" class="arrow-icon">我的品优购</a>
+                        <ol id="downMenu">
+                            <li><a href="#">个人中心</a></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ol>
+                    </li>
                     <li></li>
                     <li><a href="#">品优购会员</a></li>
                     <li></li>
                     <li><a href="#">企业采购</a></li>
                     <li></li>
-                    <li class="arrow-icon"><a href="#">关注品优购</a></li>
+                    <li><a href="#" class="arrow-icon">关注品优购</a></li>
                     <li></li>
-                    <li class="arrow-icon"><a href="#">客户服务</a></li>
+                    <li><a href="#" class="arrow-icon">客户服务</a></li>
                     <li></li>
-                    <li class="arrow-icon"><a href="#">网站导航</a></li>
+                    <li><a href="#" class="arrow-icon">网站导航</a></li>
                 </ul>
             </div>
         </div>
     </section>
+    <script>
+        var downMenu = document.getElementById('downMenu');
+        var a = downMenu.parentNode;
+        a.onmouseover = function() {
+           downMenu.style.display = 'block'; 
+        }
+        a.onmouseout = function() {
+           downMenu.style.display = 'none'; 
+        }
+    </script>
     <!-- shortcut 快捷导航栏模块 end-->
 
     <!--固定菜单条  -->

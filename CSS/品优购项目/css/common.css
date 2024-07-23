@@ -40,11 +40,33 @@
     float: left;
 }
 
-.shortcut .fr ul li:nth-child(even) {
+.shortcut .fr > ul > li:nth-child(even) {
     width: 1px;
     height: 12px;
     background-color: #666;
     margin: 9px 15px 0;
+}
+
+.shortcut .fr > ul > li {
+    position: relative;
+}
+
+#downMenu {
+    display: none;
+    width: calc(100% + 30px);
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    border-left: 1px solid #fecc5b;
+    border-right: 1px solid #fecc5b;
+    z-index: 1;
+    background-color: #f1f1f1;
+}
+
+#downMenu li {
+    float: none;
+    border-bottom: 1px solid #fecc5b;
+    text-align: center;
 }
 
 .arrow-icon::after {
