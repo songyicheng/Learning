@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 200px;
+            height: 200px;
+        }
+
+        ul li {
+            width: 200px;
+            margin-bottom: 5px;
+        }
+
+        ul li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        我是父节点
+        <div id="self">
+            我是本体
+            <div id="child">
+                我是子节点 1
+            </div>
+        </div>
+        <span id="bro">我是兄弟节点</span>
+    </div>
+
+    <textarea cols="30" rows="10"></textarea>
+    <button class="btn1">发布</button>
+    <button class="btn2">删除</button>
+    <ul>
+        <div>评论区</div>
+    </ul>
+    <script>
+        var div = document.querySelector('#self');
+        // 父节点
+        console.log(div);
+        console.log(div.parentNode);
+        // 子节点
+        console.log(div.childNodes);//所有节点，包括换行和文本，返回值长度为3
+        console.log(div.children);//所有元素节点
+        // 兄弟节点
+        console.log(div.nextSibling);//下一个节点，包括换行和文本
+        console.log(div.nextElementSibling);//下一个元素节点
+        console.log(div.previousSibling);//上一个节点，包括换行和文本
+        console.log(div.previousElementSibling);//上一个元素节点
+
+        //添加节点
+        var creatDiv = document.createElement('div');
+        var creatDiv2 = document.createElement('div');
+        div.appendChild(creatDiv);
+        creatDiv.innerHTML = '我是新创建的子节点 2 ';
+        creatDiv2.innerHTML = '我是新创建的子节点 0 ';
+        creatDiv.id = 'creatChild';
+        div.insertBefore(creatDiv2, div.children[0]);
+        //评论区案例
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('.btn1');
+        var btn2 = document.querySelector('.btn2');
+        var ul = document.querySelector('ul');
+        btn2.disabled = true;
+        btn.onclick = function () {
+            if (text.value !== '') {
+                var li = document.createElement('li');
+                ul.insertBefore(li, ul.children[1]);
+                li.innerHTML = text.value + '<a href="javascript:void(0);">删除</a>';
+                li.style.backgroundColor = 'red';
+                text.value = '';
+                btn2.disabled = false;
+                var dels = document.querySelectorAll('a');
+                for (var i = 0; i < dels.length; i++) {
+                    dels[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+        //删除节点
+        btn2.onclick = function () {
+            if (ul.children.length > 1) {
+                ul.removeChild(ul.children[1]);
+                if (ul.children.length == 1) {
+                    this.disabled = true;
+                }
+            }
+            else {
+                this.disabled = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
