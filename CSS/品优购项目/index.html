@@ -87,19 +87,24 @@
         </div>
         <!-- search 搜索框模块 -->
         <div class="search">
-            <input type="search" name="" id="search" placeholder="数码相机">
+            <input type="search" name="" id="search" placeholder="数码相机 (按下 s 快速定位至此)">
             <input type="button" value="搜索">
         </div>
         <script>
             var search = document.querySelector('#search');
             search.onfocus = function() {
-                if(this.placeholder === '数码相机') {
+                if(this.placeholder === '数码相机 (按下 s 快速定位至此)') {
                     this.placeholder = '';
                 }
             }
             search.onblur = function() {
-                this.placeholder = '数码相机';
+                this.placeholder = '数码相机 (按下 s 快速定位至此)';
             }
+            document.addEventListener('keyup',function(e) {
+                if(e.keyCode === 83) {
+                    search.focus();
+                }
+            })
         </script>
         <!-- hotwords 模块 -->
         <div class="hotwords">
