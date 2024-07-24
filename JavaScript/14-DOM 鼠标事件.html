@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        img {
+            position: absolute;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/icon/睁眼显示密码.png" alt="">
+    <script>
+        var img = document.querySelector('img');
+        var flag = 1;
+        console.log(img);
+        document.addEventListener('click', function (e) {
+            // 1.浏览器可视区窗口坐标（不受滚动条影响）
+            console.log('浏览器可视区窗口坐标');
+            console.log('X:' + e.clientX);
+            console.log('Y:' + e.clientY);
+            // 2.文档页面坐标
+            console.log('文档页面坐标');
+            console.log('X:' + e.pageX);
+            console.log('Y:' + e.pageY);
+            // 3.电脑屏幕坐标（窗口放大缩小）
+            console.log('电脑屏幕坐标');
+            console.log('X:' + e.screenX);
+            console.log('Y:' + e.screenY);
+            if (flag == 1) {
+                img.src = 'images/icon/闭眼隐藏密码.png';
+                flag = 0;
+            }
+            else {
+                img.src = 'images/icon/睁眼显示密码.png';
+                flag = 1;
+            }
+        })
+        // 跟随鼠标移动
+        document.addEventListener('mousemove', function (e) {
+            img.style.left = e.pageX - 25 + 'px';
+            img.style.top = e.pageY - 25 + 'px';
+        })
+    </script>
+</body>
+
+</html>
