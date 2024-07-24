@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.键盘按键松开
+        document.addEventListener('keyup',function(e) {
+            console.log(e.keyCode);
+        })
+        // 2.1 键盘按键按下
+        document.addEventListener('keydown',function() {
+            console.log('按下');
+        })
+        // 2.2 键盘按键按下(不能识别功能键)
+        document.addEventListener('keypress',function() {
+            console.log('按下');
+        })
+    </script>
+</body>
+</html>
