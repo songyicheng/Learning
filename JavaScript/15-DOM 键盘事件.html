@@ -1,24 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .search {
+            position: relative;
+            width: 200px;
+            height: 50px;
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 180px;
+            height: 20px;
+            font-size: 16px;
+            line-height: 24px;
+            border: 1px solid #000;
+        }
+
+        .con::before {
+            position: absolute;
+            top: 22px;
+            left: 16px;
+            content: '';
+            width: 0;
+            height: 0;
+            border:4px solid transparent;
+            border-top-color: red;
+        }
+
+        .text {
+            position: absolute;
+            top: 30px;
+            left: 6px;
+            width: 176px;
+            font-size: 10px;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="search">
+        <div class="con">123</div>
+        <input type="text" placeholder="输入内容" class="text">
+    </div>
     <script>
         // 1.键盘按键松开
-        document.addEventListener('keyup',function(e) {
+        document.addEventListener('keyup', function (e) {
             console.log(e.keyCode);
         })
         // 2.1 键盘按键按下
-        document.addEventListener('keydown',function() {
+        document.addEventListener('keydown', function () {
             console.log('按下');
         })
         // 2.2 键盘按键按下(不能识别功能键)
-        document.addEventListener('keypress',function() {
+        document.addEventListener('keypress', function () {
             console.log('按下');
+        })
+
+        var con = document.querySelector('.con');
+        var text = document.querySelector('.text');
+        text.addEventListener('keyup', function (e) {
+            if(this.value == '') {
+                con.style.display = 'none';
+            }
+            else {
+                con.style.display = 'block';
+                con.innerHTML = text.value;
+            }
+        })
+        text.addEventListener('blur', function() {
+            con.style.display = 'none';
+        })
+        text.addEventListener('focus', function() {
+            if(this.value != '') {
+                con.style.display = 'block';
+            }
         })
     </script>
 </body>
+
 </html>
