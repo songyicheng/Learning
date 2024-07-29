@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/index.css">
     <!-- favicon图标 -->
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- JS文件 index.js-->
+     <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -55,16 +57,6 @@
             </div>
         </div>
     </section>
-    <script>
-        var downMenu = document.getElementById('downMenu');
-        var a = downMenu.parentNode;
-        a.onmouseover = function() {
-           downMenu.style.display = 'block'; 
-        }
-        a.onmouseout = function() {
-           downMenu.style.display = 'none'; 
-        }
-    </script>
     <!-- shortcut 快捷导航栏模块 end-->
 
     <!--固定菜单条  -->
@@ -90,22 +82,7 @@
             <input type="search" name="" id="search" placeholder="数码相机 (按下 s 快速定位至此)">
             <input type="button" value="搜索">
         </div>
-        <script>
-            var search = document.querySelector('#search');
-            search.onfocus = function() {
-                if(this.placeholder === '数码相机 (按下 s 快速定位至此)') {
-                    this.placeholder = '';
-                }
-            }
-            search.onblur = function() {
-                this.placeholder = '数码相机 (按下 s 快速定位至此)';
-            }
-            document.addEventListener('keyup',function(e) {
-                if(e.keyCode === 83) {
-                    search.focus();
-                }
-            })
-        </script>
+        
         <!-- hotwords 模块 -->
         <div class="hotwords">
             <a href="#" class="style_red">优惠购首发</a>

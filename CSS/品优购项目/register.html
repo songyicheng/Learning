@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/register.css">
     <!-- favicon图标 -->
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- JS文件 index.js-->
+    <script src="js/register.js"></script>
 </head>
 
 <body>
@@ -30,22 +32,8 @@
                         <li>
                             <label for="tel">手机号：</label>
                             <input type="text" id="tel">
-                            <span class="error"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
+                            <span class="error" id="span"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
                         </li>
-                        <script>
-                            var tel = document.getElementById('tel');
-                            var span = document.querySelector('span');
-                            tel.onblur = function() {
-                                if(tel.value.length < 6 || tel.value.length > 11) {
-                                    span.innerHTML = '<i class="error_icon"></i>手机号码格式不正确，请重新输入';
-                                    span.className = 'error';
-                                }
-                                else {
-                                    span.innerHTML = '<i class="success_icon"></i>手机号码格式正确';
-                                    span.className = 'success';
-                                }
-                            }
-                        </script>
                         <li>
                             <label for="mes">短信验证码：</label>
                             <input type="text" id="mes">
@@ -57,23 +45,6 @@
                             <img src="../../JavaScript/images/icon/闭眼隐藏密码.png" alt="" id="eye1">
                             <span class="error"><i class="error_icon"></i>密码不能少于6位数，请重新输入</span>
                         </li>
-                        <script>
-                            var flag1 = 0;
-                            var eye_btn1 = document.getElementById('eye1');
-                            var input1 = document.getElementById('pwd');
-                            eye_btn1.onclick = function() {
-                                if (flag1 === 0) {                                
-                                    this.src = '../../JavaScript/images/icon/睁眼显示密码.png';
-                                    input1.type = 'text';
-                                    flag1 = 1;
-                                }
-                                else {
-                                    this.src = '../../JavaScript/images/icon/闭眼隐藏密码.png';
-                                    input1.type = 'password';
-                                    flag1 = 0;
-                                }
-                            }
-                        </script>
                         <li class="safety">
                             安全程度
                             <em>弱</em><em>中</em><em>强</em>
@@ -84,23 +55,6 @@
                             <img src="../../JavaScript/images/icon/闭眼隐藏密码.png" alt="" id="eye2">
                             <span class="error"><i class="error_icon"></i>输入密码不一致，请重新输入</span>
                         </li>
-                        <script>
-                            var flag2 = 0;
-                            var eye_btn2 = document.getElementById('eye2');
-                            var input2 = document.getElementById('pwd_confirm');
-                            eye_btn2.onclick = function() {
-                                if (flag2 === 0) {                                
-                                    this.src = '../../JavaScript/images/icon/睁眼显示密码.png';
-                                    input2.type = 'text';
-                                    flag2 = 1;
-                                }
-                                else {
-                                    this.src = '../../JavaScript/images/icon/闭眼隐藏密码.png';
-                                    input2.type = 'password';
-                                    flag2 = 0;
-                                }
-                            } 
-                        </script>
                         <li class="agree">
                             <input type="checkbox" name="" id="">同意协议并注册
                             <a href="#">《知晓用户协议》</a>
