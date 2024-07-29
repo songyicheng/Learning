@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bf5b5b;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        5s 后自动隐藏！
+        <button>保留</button>
+    </div>
+    <div>
+        距明天还剩
+        <span id="h">24</span>:
+        <span id="m">60</span>:
+        <span id="s">60</span>
+        <button id="pause">暂停</button>
+        <button id="start">开始</button>
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button');
+        var time1 = setTimeout(function () {
+            console.log('5s');
+        }, 5000)
+        var time2 = setTimeout(function () {
+            div.style.display = 'none';
+        }, 5000);
+        btn.addEventListener('click', function () {
+            clearTimeout(time2);
+        })
+        // 倒计时
+        var hour = document.querySelector('#h');
+        var min = document.querySelector('#m');
+        var sec = document.querySelector('#s');
+        var setTime =new Date(new Date().toLocaleDateString()).getTime() + 86400000;
+        
+        countDown();
+        function countDown() {
+            var nowTime = +new Date();
+            var times = (setTime - nowTime) / 1000;
+            // var d = parseInt(times / 60 / 60 / 24);
+            // d = d < 10 ? '0' + d : d;
+            var h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h;
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            min.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            sec.innerHTML = s;
+        }
+        var time3 = setInterval(countDown, 1000);
+        var pause = document.querySelector('#pause');
+        pause.addEventListener('click', function () {
+            clearInterval(time3);
+        })
+        var start = document.querySelector('#start');
+        start.addEventListener('click', function () {
+            time3 = setInterval(countDown, 1000);
+        })
+    </script>
+</body>
+
+</html>
