@@ -23,4 +23,16 @@ window.addEventListener('load',function() {
             search.focus();
         }
     })
+    // 返回顶部
+    var top = document.querySelector('#top');
+    var floor = document.querySelector('.floor');
+    var floorTop = floor.offsetTop;
+    document.addEventListener('scroll',function() {
+        if(pageYOffset >= floorTop) {
+            top.style.display = 'block';
+        }
+        else {
+            top.style.display = 'none';
+        }
+    })
 })

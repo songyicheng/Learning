@@ -321,7 +321,8 @@
     position: fixed;
     top: 190px;
     left: 50%;
-    margin-left: -676px
+    margin-left: -676px;
+    text-align: center;
 }
 
 .fixed li {
@@ -339,4 +340,13 @@
 
 .fixed li:nth-child(1) a {
     color: #fff;
+}
+
+.fixed li:last-child {
+    border-bottom: none;
+}
+
+.fixed #top {
+    display: none;
+    font-size: 12px;
 }
