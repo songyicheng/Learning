@@ -9,6 +9,7 @@
     position: relative;
     width: 720px;
     height: 100%;
+    overflow: hidden;
 }
 
 .main .newsflash {
@@ -21,6 +22,17 @@
     height: 455px;
 }
 
+.focus>ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+}
+
+.focus>ul>li {
+    float: left;
+}
+
 .focus .prev,
 .next {
     position: absolute;
@@ -31,20 +43,24 @@
     line-height: 50px;
     font-size: 30px;
     text-align: center;
+    z-index: 2;
 }
 
 .focus .prev {
+    display: none;
     left: 10px;
 }
 
 .focus .next {
+    display: none;
     right: 10px;
 }
 
 .focus .pro-nav {
     position: absolute;
     bottom: 10px;
-    left: calc(50% - 50px);
+    left: 50%;
+    transform: translateX(-50%);
     width: 100px;
     height: 20px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -62,7 +78,7 @@
     border-radius: 5px;
 }
 
-.focus .pro-nav li:nth-child(1) {
+.focus .pro-nav .current {
     background-color: #c37633;
 }
 
@@ -267,22 +283,23 @@
     height: 360px;
 }
 
-.box_bd .tab_content .tab_list_item > div {
+.box_bd .tab_content .tab_list_item>div {
     float: left;
 }
 
-.box_bd .tab_content .tab_list_item > div:nth-child(1) {
+.box_bd .tab_content .tab_list_item>div:nth-child(1) {
     width: 210px;
     background-color: #f9f9f9;
     height: 360px;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.box_bd .tab_content .tab_list_item > div:nth-child(1) ul {
+.box_bd .tab_content .tab_list_item>div:nth-child(1) ul {
     margin-left: 14px;
 }
-.box_bd .tab_content .tab_list_item > div:nth-child(1) ul li {
+
+.box_bd .tab_content .tab_list_item>div:nth-child(1) ul li {
     float: left;
     width: 85px;
     height: 34px;
@@ -292,15 +309,15 @@
     margin-right: 13px;
 }
 
-.box_bd .tab_content .tab_list_item > div:nth-child(2) {
+.box_bd .tab_content .tab_list_item>div:nth-child(2) {
     width: 330px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.box_bd .tab_content .tab_list_item > div:nth-child(n+3) {
+.box_bd .tab_content .tab_list_item>div:nth-child(n+3) {
     width: 220px;
     border-right: 1px solid #ccc;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .floor img {
@@ -313,7 +330,7 @@
 
 .imga {
     display: block;
-    border-bottom:  1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 /* 固定菜单栏 */
@@ -349,4 +366,5 @@
 .fixed #top {
     display: none;
     font-size: 12px;
+    cursor: pointer;
 }
