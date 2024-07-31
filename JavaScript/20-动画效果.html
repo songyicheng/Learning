@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #c76f6f;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #361313;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <div class="slow" style="top: 210px;"></div>
+    <script>
+        function animate(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 10)
+        }
+        var span = document.querySelector('span');
+        animate(span, 200);
+
+        var div = document.querySelector('div');
+        var timer = setInterval(function () {
+            if (div.offsetLeft >= (innerWidth / 2 - div.offsetWidth / 2)) {
+                clearInterval(timer);
+            }
+            div.style.left = div.offsetLeft + 1 + 'px';
+        }, 10)
+
+        function animateSlow(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                var step = (target - obj.offsetLeft) / 100;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 10)
+        }
+        var slow = document.querySelector('.slow');
+        animateSlow(slow, innerWidth / 2 - div.offsetWidth / 2, function () {
+            slow.style.backgroundColor = 'red';
+        });
+    </script>
+</body>
+
+</html>
