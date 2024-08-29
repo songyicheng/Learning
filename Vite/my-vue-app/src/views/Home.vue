@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, getCurrentInstance, onMounted } from 'vue'
+const { proxy } = getCurrentInstance()
+
 const getImageUrl = (user) => {
     return new URL(`../assets/images/${user}.png`, import.meta.url).href
 }
@@ -23,6 +25,13 @@ const tableLabel = ref({
     todayBuy: "今日购买",
     monthBuy: "本月购买",
     totalBuy: "总购买",
+})
+const getTableData = async () => {
+    const data = await proxy.$api.getTableData()
+    tableData.value = data.tableData
+}
+onMounted(() => {
+    getTableData()
 })
 </script>
 

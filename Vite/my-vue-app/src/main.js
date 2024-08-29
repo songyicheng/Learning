@@ -8,9 +8,15 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 引入 pinia
 import {createPinia} from 'pinia'
+// 引入 mockjs
+import "@/api/mock.js"
+
+import api from "@/api/api"
 
 const pinia = createPinia();
 const app = createApp(App);
+
+app.config.globalProperties.$api = api;
 app.use(pinia);
 app.use(ElementPlus);
 app.use(router).mount('#app');

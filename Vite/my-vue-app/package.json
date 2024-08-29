@@ -17,6 +17,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
+    "axios": "^1.7.5",
+    "mockjs": "^1.1.0",
     "pinia": "^2.2.2",
     "unplugin-auto-import": "^0.18.2",
     "unplugin-element-plus": "^0.8.0",
