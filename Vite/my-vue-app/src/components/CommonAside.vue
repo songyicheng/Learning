@@ -87,6 +87,7 @@ const router = useRouter()
 const activeMenu = computed(()=>route.path)
 const handleMenu =(item)=>{
     router.push(item.path)
+    store.selectMenu(item)
 }
 </script>
 

@@ -1,15 +1,36 @@
 import { defineStore } from 'pinia'
-import {ref} from 'vue'
+import { ref } from 'vue'
 
-function initState(){
+function initState() {
     return {
-        isCollapse:false,
+        isCollapse: false,
+        tags: [
+            {
+                path: '/home',
+                name: 'home',
+                label: '首页',
+                icon: 'home'
+            }
+        ],
+        currentMenu: null,
     };
 }
 export const useAllDataStore = defineStore('AllData', () => {
-// ref() 就是 state 属性
-// computed() 就是 getters
-// function() 就是 actions
+    // ref() 就是 state 属性
+    // computed() 就是 getters
+    // function() 就是 actions
     const state = ref(initState())
-    return { state }
-  })
+    function selectMenu(val) {
+        if (val.name === 'home') {
+            state.value.currentMenu = null;
+        } else {
+            let index = state.value.tags.findIndex((item) => item.name === val.name);
+            index === -1 ? state.value.tags.push(val) : "";
+        }
+    }
+    function updateTags(tag) {
+        let index = state.value.tags.findIndex(item => item.name === tag.name)
+        state.value.tags.splice(index, 1)
+    }
+    return { state, selectMenu, updateTags }
+})
