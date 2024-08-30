@@ -72,7 +72,7 @@ export const useAllDataStore = defineStore('AllData', () => {
         })
         let routers = router.getRoutes()
         routers.forEach((item) => {
-            if (item.name == 'main' || item.name == 'main') {
+            if (item.name == 'main' || item.name == 'login'|| item.name == '404') {
                 return
             } else {
                 router.removeRoute(item.name)
@@ -95,7 +95,7 @@ export const useAllDataStore = defineStore('AllData', () => {
         selectMenu,
         updateTags,
         updateMenuList,
-        clean,
         addMenu,
+        clean,
     }
 })
