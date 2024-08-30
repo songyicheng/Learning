@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 function initState() {
     return {
@@ -15,7 +15,7 @@ function initState() {
         currentMenu: null,
         menuList: [],
         token: '',
-        routerList:[],
+        routerList: [],
     };
 }
 export const useAllDataStore = defineStore('AllData', () => {
@@ -23,6 +23,12 @@ export const useAllDataStore = defineStore('AllData', () => {
     // computed() 就是 getters
     // function() 就是 actions
     const state = ref(initState())
+    watch(state, (newObj) => {
+        if (!newObj.token) return;
+        localStorage.setItem("store", JSON.stringify(newObj));
+    },
+        { deep: true }
+    )
     function selectMenu(val) {
         if (val.name === 'home') {
             state.value.currentMenu = null;
@@ -38,39 +44,48 @@ export const useAllDataStore = defineStore('AllData', () => {
     function updateMenuList(val) {
         state.value.menuList = val;
     }
-    function addMenu(router){
+    function addMenu(router, type) {
+        if (type === "refresh") {
+            if (JSON.parse(localStorage.getItem('store'))) {
+                state.value = JSON.parse(localStorage.getItem('store'))
+                state.value.routerList = [];
+            }
+            else {
+                return;
+            }
+        }
         const menu = state.value.menuList
         const module = import.meta.glob('../views/**/*.vue');
-        const routeArr= []
-        menu.forEach((item)=>{
-            if(item.children){
-                item.children.forEach(val=>{
+        const routeArr = []
+        menu.forEach((item) => {
+            if (item.children) {
+                item.children.forEach(val => {
                     let url = `../views/${val.url}.vue`
                     val.component = module[url];
                     routeArr.push(...item.children)
                 })
-            }else{
+            } else {
                 let url = `../views/${item.url}.vue`
                 item.component = module[url];
                 routeArr.push(item)
             }
         })
         let routers = router.getRoutes()
-        routers.forEach((item)=>{
-            if(item.name=='main'||item.name=='main'){
+        routers.forEach((item) => {
+            if (item.name == 'main' || item.name == 'main') {
                 return
-            }else{
+            } else {
                 router.removeRoute(item.name)
             }
         })
-        routeArr.forEach((item)=>{
-            state.value.routerList.push(router.addRoute("main",item))
+        routeArr.forEach((item) => {
+            state.value.routerList.push(router.addRoute("main", item))
         }
         )
     }
-    function clean(){
-        state.value.routerList.forEach((item)=>{
-            if(item) item();
+    function clean() {
+        state.value.routerList.forEach((item) => {
+            if (item) item();
         })
         state.value = initState();
         localStorage.removeItem("store")
