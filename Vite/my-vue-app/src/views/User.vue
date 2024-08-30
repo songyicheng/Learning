@@ -1,6 +1,6 @@
 <script setup>
 import { ref, getCurrentInstance, onMounted, reactive } from 'vue'
-
+import { ElMessage,ElMessageBox } from 'element-plus';
 const handleClick = () => {
     console.log('click');
 
@@ -55,6 +55,18 @@ const handleChange = (page) => {
     config.page = page
     getUserData()
 }
+const handleDelete = (val) => {
+    ElMessageBox.confirm("你确定要删除吗？").then(async ()=>{
+        await proxy.$api.deleteUser({id:val.id})
+        ElMessage({
+            showClose:true,
+            message:'删除成功',
+            type:'success'
+        })
+        getUserData()
+    })
+    
+}
 onMounted(() => {
     getUserData()
 })
@@ -78,11 +90,11 @@ onMounted(() => {
                 :prop="item.prop" :label="item.label" />
 
             <el-table-column fixed="right" label="Operations" min-width="120">
-                <template #default>
+                <template #="scope">
                     <el-button type="primary" size="small" @click="handleClick">
                         编辑
                     </el-button>
-                    <el-button type="danger" size="small">删除</el-button>
+                    <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>

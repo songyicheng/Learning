@@ -26,4 +26,11 @@ export default {
             data,
         });
     },
+    deleteUser(data) {
+        return request({
+            url:"/user/deleteUser",
+            method:"get",
+            data,
+        });
+    },
 };
