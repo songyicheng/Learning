@@ -13,6 +13,9 @@ function initState() {
             }
         ],
         currentMenu: null,
+        menuList: [],
+        token: '',
+        routerList:[],
     };
 }
 export const useAllDataStore = defineStore('AllData', () => {
@@ -32,5 +35,52 @@ export const useAllDataStore = defineStore('AllData', () => {
         let index = state.value.tags.findIndex(item => item.name === tag.name)
         state.value.tags.splice(index, 1)
     }
-    return { state, selectMenu, updateTags }
+    function updateMenuList(val) {
+        state.value.menuList = val;
+    }
+    function addMenu(router){
+        const menu = state.value.menuList
+        const module = import.meta.glob('../views/**/*.vue');
+        const routeArr= []
+        menu.forEach((item)=>{
+            if(item.children){
+                item.children.forEach(val=>{
+                    let url = `../views/${val.url}.vue`
+                    val.component = module[url];
+                    routeArr.push(...item.children)
+                })
+            }else{
+                let url = `../views/${item.url}.vue`
+                item.component = module[url];
+                routeArr.push(item)
+            }
+        })
+        let routers = router.getRoutes()
+        routers.forEach((item)=>{
+            if(item.name=='main'||item.name=='main'){
+                return
+            }else{
+                router.removeRoute(item.name)
+            }
+        })
+        routeArr.forEach((item)=>{
+            state.value.routerList.push(router.addRoute("main",item))
+        }
+        )
+    }
+    function clean(){
+        state.value.routerList.forEach((item)=>{
+            if(item) item();
+        })
+        state.value = initState();
+        localStorage.removeItem("store")
+    }
+    return {
+        state,
+        selectMenu,
+        updateTags,
+        updateMenuList,
+        clean,
+        addMenu,
+    }
 })
