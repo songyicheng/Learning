@@ -1,16 +1,16 @@
 <template>
     <el-aside :width="width">
-        <el-menu active-text-color="#ffd04b" background-color="#545c64" text-color="#fff" :collapse="isCollapse" :collapse-transition="false">
+        <el-menu active-text-color="#ffd04b" background-color="#545c64" text-color="#fff" :collapse="isCollapse" :collapse-transition="false" :default-active="activeMenu">
             <!-- 折叠菜单 -->
             <h3 v-show="!isCollapse">通用后台管理系统</h3>
             <h3 v-show="isCollapse">后台</h3>
             <!-- 无子菜单 -->
-            <el-menu-item v-for="item in noChildren" :index="item.path" :key="item.path">
+            <el-menu-item v-for="item in noChildren" :index="item.path" :key="item.path" @click="handleMenu(item)">
                 <component class="icons" :is="item.icon"></component>
                 <span>{{ item.label }}</span>
             </el-menu-item>
             <!-- 有子菜单 -->
-            <el-sub-menu v-for="item in hasChildren" :index="item.path" :key="item.path">
+            <el-sub-menu v-for="item in hasChildren" :index="item.path" :key="item.path" >
                 <template #title>
                     <component class="icons" :is="item.icon"></component>
                     <span>{{ item.label }}</span>
@@ -18,7 +18,7 @@
                 <!-- 二级菜单 -->
                 <el-menu-item-group>
                     <el-menu-item v-for="(subItem, subIndex) in item.children" :index="subItem.path"
-                        :key="subItem.path">
+                        :key="subItem.path" @click="handleMenu(subItem)">
                         <component class="icons" :is="subItem.icon"></component>
                         <span>{{ subItem.label }}</span>
                     </el-menu-item>
@@ -31,6 +31,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useAllDataStore } from '@/stores'
+import { useRoute,useRouter } from 'vue-router';
 const list = ref([
     {
         path: '/home',
@@ -81,6 +82,12 @@ const hasChildren = computed(() => list.value.filter(item => item.children))
 const store = useAllDataStore()
 const isCollapse = computed(() => store.state.isCollapse)
 const width = computed(() => store.state.isCollapse ? '64px' : '180px')
+const route = useRoute()
+const router = useRouter()
+const activeMenu = computed(()=>route.path)
+const handleMenu =(item)=>{
+    router.push(item.path)
+}
 </script>
 
 <style lang="less" scoped>
