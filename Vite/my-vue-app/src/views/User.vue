@@ -1,5 +1,5 @@
 <script setup>
-import { ref, getCurrentInstance, onMounted, reactive } from 'vue'
+import { ref, getCurrentInstance, onMounted, reactive, nextTick} from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus';
 const handleClick = () => {
     console.log('click');
@@ -72,7 +72,7 @@ const action = ref('add')
 //控制对话框是否显示
 const dialogVisible = ref(false)
 const formUser = reactive({
-    sex: '1'
+    sex: ''
 })
 //表单校验规则
 const rules = reactive({
@@ -120,6 +120,9 @@ const onSubmit = () => {
             if (action.value === 'add') {
                 res = await proxy.$api.addUser(formUser)
             }
+            else {
+                res = await proxy.$api.editUser(formUser)
+            }
             if(res){
                 dialogVisible.value = false
                 proxy.$refs["userForm"].resetFields()
@@ -133,6 +136,14 @@ const onSubmit = () => {
             })
         }
     })
+}
+const handleEdit=(val) => {
+    action.value = 'edit'
+    dialogVisible.value=true
+    nextTick(()=>{
+        Object.assign(formUser,{...val,sex:''+val.sex})
+    })
+
 }
 onMounted(() => {
     getUserData()
@@ -158,7 +169,7 @@ onMounted(() => {
 
             <el-table-column fixed="right" label="Operations" min-width="120">
                 <template #="scope">
-                    <el-button type="primary" size="small" @click="handleClick">
+                    <el-button type="primary" size="small" @click="handleEdit(scope.row)">
                         编辑
                     </el-button>
                     <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
