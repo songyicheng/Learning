@@ -26,5 +26,17 @@ export default defineConfig({
         replacement:"/src",
       }
     ]
+  },
+  sever:{
+    proxy:{
+      // // 代理规则
+      // '/api':{
+      //   target:'',
+      //   changeOrigin:true,
+      //   rewrite:(path)=>{
+      //     return path.replace(/\/api/,'')
+      //   }
+      // }
+    }
   }
 })
