@@ -1,3 +1,4 @@
+package Array;
 // 开发商购买土地
 import java.util.Scanner;
 public class problem44 {
