@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var sortedSquares = function (nums) {
+            let left = 0, right = nums.length - 1, k = nums.length - 1;
+            let res = new Array(nums.length).fill(0);
+            while (left <= right) {
+                if (nums[left] * nums[left] > nums[right] * nums[right]) {
+                    res[k] = nums[left] * nums[left]
+                    left++;
+                    k--;
+                }
+                else {
+                    res[k] = nums[right] * nums[right];
+                    right--;
+                    k--;
+                }
+            }
+            return res;
+        };
+        var nums =[-7, -3, 2, 3, 11];
+        console.log(sortedSquares(nums));
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var generateMatrix = function (n) {
+            let res = new Array(n).fill(0).map(() => new Array(n).fill(0));
+            let loop = Math.floor(n / 2);
+            let mid = Math.floor(n / 2);
+            let x = 0, y = 0;
+            let num = 1;
+            let length = n;
+            while (loop--) {
+                for (let i = 0; i < length - 1; i++) {
+                    res[x][y + i] = num++;
+                }
+                for (let j = 0; j < length - 1; j++) {
+                    res[x + j][y + length - 1] = num++;
+                }
+                for (let i = 0; i < length - 1; i++) {
+                    res[x + length - 1][y + length - 1 - i] = num++;
+                }
+                for (let j = 0; j < length - 1; j++) {
+                    res[x + length - 1 - j][y] = num++;
+                }
+                x++;
+                y++;
+                length = length - 2;
+            }
+            if (n % 2 === 1) {
+                res[mid][mid] = num;
+            }
+            return res;
+        };
+        let n=6;
+        console.log(generateMatrix(n));
+        
+
+    </script>
+</body>
+
+</html>
