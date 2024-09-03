@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ListNode(value, next) {
+            this.val = value;
+            this.next = (next === undefined ? null : next);
+        }
+        var removeElements = function (head, val) {
+            const vNode = new ListNode(0, head);
+            let res = vNode;
+            while (res.next) {
+                if (res.next.val === val) {
+                    res.next = res.next.next;
+                    continue;
+                }
+                res = res.next;
+            }
+            return vNode.next;
+        }
+        function arrToList(arr) {
+            const list = new ListNode(arr[0]);
+            let res = list;
+            for (let i = 1; i < arr.length; i++) {
+                res.next = new ListNode(arr[i]);
+                res = res.next;
+            }
+            return list;
+        }
+        function listToArr(list) {
+            const arr = [];
+            while (list.next) {
+                arr[arr.length] = list.val;
+                list = list.next;
+            }
+            arr[arr.length] = list.val;
+            return arr;
+        }
+        // 双指针法反转链表
+        var reverseList = function (head) {
+            if (!head || !head.next) { return head; }
+            let cur = head, pre = null, temp = null;
+            while (cur) {
+                temp = cur;
+                cur = cur.next;
+                temp.next = pre;
+                pre = temp;
+
+            }
+            return pre;
+        };
+        // 两两交换链表中的节点
+        var swapPairs = function (head) {
+            let vNode = new ListNode(0, head);
+            let cur = vNode, pre = null, temp = null;
+            while (cur.next && cur.next.next) {
+                pre = cur.next;
+                temp = pre.next;
+                pre.next = temp.next;
+                temp.next = pre;
+                cur.next = temp;
+                cur = pre;
+            }
+            return vNode.next;
+        };
+        // 链表相交
+        var getIntersectionNode = function (headA, headB) {
+            let lenA = 0, lenB = 0, temp = 0;
+            let res1 = headA, res2 = headB;
+            while (res1 !== null) {
+                lenA++;
+                res1 = res1.next;
+            }
+            while (res2 !== null) {
+                lenB++;
+                res2 = res2.next;
+            }
+            res1 = headA;
+            res2 = headB;
+            if (lenA < lenB) {
+                temp = lenA;
+                lenA = lenB;
+                lenB = temp;
+                res1 = headB;
+                res2 = headA;
+            }
+            temp = lenA - lenB;
+            while (temp--) {
+                res1 = res1.next;
+            }
+            while (res1 !== null) {
+                if (res1 === res2) {
+                    return res1;
+                }
+                res1 = res1.next;
+                res2 = res2.next;
+            }
+            return null;
+        };
+        // 环形链表
+        var detectCycle = function (head) {
+            let slow = head, fast = head;
+            while (fast && fast.next) {
+                slow = slow.next;
+                fast = fast.next.next;
+                if (slow === fast) {
+                    let index1 = head;
+                    let index2 = slow;
+                    while (index1 !== index2) {
+                        index1 = index1.next;
+                        index2 = index2.next;
+                    }
+                    return index1;
+                }
+            }
+            return null;
+        };
+
+        const headArr = [1, 2, 6, 3, 4, 5, 6];
+        let headList = arrToList(headArr);
+        let newList = removeElements(headList, 6);
+        let newArr = listToArr(newList);
+        console.log(newArr);
+
+        let reList = reverseList(headList);
+        console.log(listToArr(reList));
+
+    </script>
+</body>
+
+</html>
