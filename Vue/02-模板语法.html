@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Vue.js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>差值语法</h1>
+        <h3>hello,{{name}}</h3>
+        <h1>指令语法</h1>
+        <a v-bind:href="url">百度</a><br>
+        <input type="text" v-model:value="value">
+    </div>
+</body>
+<script>
+    const v = new Vue({
+        // 第一种指定容器方法
+        el: '#root',
+        data: {
+            name: 'jack',
+            url: 'http://www.baidu.com',
+            value: 'test'
+        }
+        //2.写法2，函数式：
+        // data() {
+        //     return {
+        //         name: 'Vue'
+        //     }
+        // }
+    }
+    )
+    // 第二种指定容器方法 v.$mount('#root')
+</script>
+
+</html>
