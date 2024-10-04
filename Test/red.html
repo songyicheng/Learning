@@ -1,0 +1,50 @@
+<script>
+    [h, w] = readline().split(' ').map((input) => parseInt(input))
+    const grid = new Array(h + 1).fill(0).map(() => new Array(w + 1).fill(0))
+    const dir = [[0, -1], [-1, 0], [0, 1], [1, 0]]
+    let total = 0
+    for (let i = 0; i < h; i++) {
+        line = readline().split(' ')
+        for (let j = 1; j <= w; j++) {
+            if (line[j - 1] > -1) { total = total + 1 }
+            grid[i + 1][j] = line[j - 1]
+        }
+    }
+    function deal(a) {
+        let sum = 0;
+        while (a) {
+            sum += a % 10
+            a = Math.floor(a / 10)
+        }
+        if (sum % 2 === 0) { return 1 }
+        else { return 0 }
+    }
+    function bfs(grid, visited, x, y) {
+        let queue = []
+        queue.push([x, y])
+        let flag = deal(grid[x][y])
+        visited[x][y] = 1
+        while (queue.length) {
+            let [x, y] = queue.shift()
+            for (let j = 0; j < 4; j++) {
+                let nextx = x + dir[j][0]
+                let nexty = y + dir[j][1]
+                if (nextx < 0 || nextx >= h || nexty < 0 || nexty >= w) continue
+                if (visited[nextx][nexty] === 0 && deal(grid[nextx][nexty]) === flag) {
+                    queue.push([nextx, nexty])
+                    visited[nextx][nexty] = 1
+                }
+            }
+        }
+    }
+    let q = parseInt(readline())
+    let res = 0
+    const visited = new Array(h + 1).fill(0).map(() => new Array(w + 1).fill(0))
+    for (let i = 0; i < h; i++) {
+        [x, y] = readline().split(' ').map((input) => parseInt(input))
+        bfs(grid, visited, x, y)
+        print(visited)
+        // print(res+'/'+total)
+    }
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Vue.js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <button v-on:click="showInfo($event,123)">提示 {{name}}</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            name:'Jack',
+        },
+        methods: {
+            showInfo(event,num){
+                alert('hello!')
+                console.log(event,num);
+            }
+        },
+    })
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+        line ="587364"
+        const num = line.split("");
+        const n = num.length;
+        let left = 0;
+        let right = n - 1;
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            num[i] = parseInt(num[i]);
+        }
+        let step = 0;
+        while (left < right) {
+                let temp = 0;
+                if (num[left] - num[right] >= 0) {
+                    temp = num[left] - num[right];
+                } else {
+                    temp = num[left] + 10 - num[right];
+                    num[right - 1] += 1;
+                }
+                res += temp * 10 ** step;
+                step++;
+                left++;
+                right--;
+        }
+        if(n%2===0){
+            let j =n/2-1
+            if(num[j]<num[j+1]){
+                res+=10 ** (j)
+            }
+        }
+        console.log(res)
+        //console.log(0)
+</script>
