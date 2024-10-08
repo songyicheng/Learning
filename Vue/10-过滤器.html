@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javaScript" src="./Vue.js/vue.js"></script>
+    <script type="text/javaScript" src="./Vue.js/dayjs.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>现在是：{{time | timeFormater('YYYY_MM_DD') | mySlice}}</h2>
+    </div>
+
+    <div id="root2">
+        <h2 :x="msg | mySlice">hello</h2>
+    </div>
+
+    <script type="text/javascript">
+
+        // 全局过滤器
+        Vue.filter('mySlice', function (value) {
+            return value.slice(0, 4)
+        })
+
+        new Vue({
+            el: '#root',
+            data: {
+                time: 1690497853551
+            },
+            // 局部过滤器
+            filters: {
+                timeFormater(value, format = 'YYYY年MM月DD日 HH:mm:ss') {
+                    return dayjs(value).format(format)
+                }
+            }
+        })
+
+        new Vue({
+            el: '#root2',
+            data: {
+                msg: 'hello'
+            }
+        })
+    </script>
+
+</body>
+
+</html>
