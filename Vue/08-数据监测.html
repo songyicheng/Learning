@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Vue.js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <h1>学生信息</h1>
+
+        <button @click="student.age++">增加年龄</button>
+        <button @click="addSex">添加性别</button>
+        <button @click="addFriend">添加朋友</button>
+        <button @click="updateFriend">修改朋友姓名(John)</button>
+        <button @click="addHobby">添加爱好</button>
+        <button @click="updateHobby">修改爱好</button>
+
+        <h3>姓名：{{student.name}}</h3>
+        <h3>年龄：{{student.age}}</h3>
+        <h3 v-if="student.sex">性别：{{student.sex}}</h3>
+        <h3>爱好：</h3>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">
+                {{h}}
+            </li>
+        </ul>
+        <h3>朋友：</h3>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.devtools = true;  //生产版本需要改配置
+        new Vue({
+            el: '#root',
+            data: {
+                student:{
+                    name:'Tom',
+                    age:18,
+                    hobby:['吃饭','睡觉','打豆豆'],
+                    friends:[
+                        {name:'Rose',age:17},
+                        {name:'Jack',age:18}
+                    ]
+                }
+            },
+            methods: {
+                addSex(){
+                    Vue.set(this.student,'sex','男')
+                },
+                addFriend(){
+                    this.student.friends.unshift({name:'Marry',age:19})
+                },
+                updateFriend(){
+                    this.student.friends[0].name='John'
+                },
+                addHobby(){
+                    this.student.hobby.push('学习')
+                },
+                updateHobby(){
+                    this.student.hobby.splice(0,1,'上网')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

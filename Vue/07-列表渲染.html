@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Vue.js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <h1 v-show="true">Hello,{{name}}!</h1>
+        <input type="text" placeholder="请输入要查找的名字" v-model="keyword">
+        <button @click="sortType=1">年龄升序</button>
+        <button @click="sortType=2">年龄降序</button>
+        <button @click="sortType=0">原顺序</button>
+        <ul>
+            <li v-for="person in filPersons" :key="person.id">
+                {{person.name}}-{{person.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.devtools = true;  //生产版本需要改配置
+        // watch 实现
+        //#region
+        /* new Vue({
+            el: '#root',
+            data: {
+                name: 'Vue',
+                keyword: '',
+                persons: [
+                    { id: '001', name: '马冬梅', age: 10 },
+                    { id: '002', name: '周冬雨', age: 10 },
+                    { id: '003', name: '周杰伦', age: 10 },
+                    { id: '004', name: '温兆伦', age: 10 },
+                ],
+                filPersons: []
+            },
+            watch: {
+                keyword: {
+                    immediate:true,
+                    handler(val) {
+                        this.filPersons = this.persons.filter((p) => {
+                            return p.name.indexOf(val) !== -1
+                        })
+                    }
+                }
+            }
+        }) */
+        //#endregion
+
+        // computed 实现
+        new Vue({
+            el: '#root',
+            data: {
+                name: 'Vue',
+                keyword: '',
+                sortType: 0,//0原1升2降
+                persons: [
+                    { id: '001', name: '马冬梅', age: 30 },
+                    { id: '002', name: '周冬雨', age: 16 },
+                    { id: '003', name: '周杰伦', age: 18 },
+                    { id: '004', name: '温兆伦', age: 20 },
+                ],
+            },
+            computed: {
+                filPersons() {
+                    const arr = this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyword) !== -1
+                    })
+                    if (this.sortType) {
+                        arr.sort((p1, p2) => {
+                            return this.sortType === 1 ? p1.age - p2.age : p2.age - p1.age
+                        })
+                    }
+                    return arr
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
