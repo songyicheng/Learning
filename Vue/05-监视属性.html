@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Vue.js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>今天天气很{{info}}</h2>
+        <hr>
+        <button v-on:click="changeWeather">切换天气1</button><br><br>
+        <button v-on:click="isHot = !isHot">切换天气2</button><br><br>
+        <hr>
+        <h2>a 的值：{{numbers.a}}</h2>
+        <button v-on:click="numbers.a++">a++</button><br><br>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            isHot: true,
+            numbers:{
+                a:1,
+                b:0,
+            }
+        },
+        methods: {
+            changeWeather() {
+                this.isHot = !this.isHot
+            }
+        },
+        computed: {
+            info() {
+                return this.isHot ? '炎热' : '凉爽'
+            },
+        },
+        watch: {
+            isHot: {
+                immediate: true,//初始化时调用handler
+                //监视值改变时调用
+                handler(newValue, oldValue) {
+                    console.log('isHot 被修改', newValue, oldValue);
+                }
+            },
+            numbers:{
+                deep:true,
+                handler(){
+                    console.log('numbers change');
+                }
+            }
+        }
+    })
+    //方法二
+    // vm.$watch('isHot', {
+    //     immediate: true,
+    //     handler(newValue, oldValue) {
+    //         console.log('isHot 被修改', newValue, oldValue);
+    //     }
+    // })
+</script>
+
+</html>

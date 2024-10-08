@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Vue.js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <button v-on:click="showInfo($event,123)">提示 {{name}}</button><br>
+        第一个：<input type="text" v-model="first"><br>
+        第二个：<input type="text" v-model="last"><br>
+        合并后：<span>{{fullname}}</span>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            name:'Jack',
+            first:'12',
+            last:'34'
+        },
+        methods: {
+            showInfo(event,num){
+                alert('hello!')
+                console.log(event,num);
+            }
+        },
+        computed:{
+            fullname:{
+                get(){
+                    return this.first+'-'+this.last
+                },
+                set(value){
+                    const arr = value.split('-')
+                    this.first=arr[0]
+                    this.last=arr[1]
+                }
+            },
+        },
+    })
+</script>
+
+</html>
