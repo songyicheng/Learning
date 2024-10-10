@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 模拟输入数据
+        const m = 5; // 网格行数
+        const n = 5; // 网格列数
+        const start = [0, 0]; // 起始点坐标 (x, y)
+        const startX = start[0];
+        const startY = start[1];
+        const target = [4, 4]; // 目标点坐标 (x, y)
+        const targetX = target[0];
+        const targetY = target[1];
+        const k = 3; // 障碍物数量
+
+        // 初始化网格和访问数组
+        const graph = new Array(m).fill(0).map(() => new Array(n).fill(0));
+        const visited = new Array(m).fill(0).map(() => new Array(n).fill(0));
+        const dir = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+
+        // 模拟障碍物坐标
+        const obstacles = [
+            [1, 1], // 第一个障碍物
+            [2, 2], // 第二个障碍物
+            [3, 3]  // 第三个障碍物
+        ];
+
+        // 标记障碍物在网格中
+        for (let i = 0; i < k; i++) {
+            let [x, y] = obstacles[i];
+            graph[x][y] = -1; // -1 表示障碍物
+        }
+
+        // BFS 实现
+        const bfs = (graph, startX, startY, targetX, targetY) => {
+            let round = 0;
+            let queue = [];
+            queue.push([startX, startY]);
+            visited[startX][startY] = 1;
+
+            while (queue.length) {
+                let size = queue.length;
+                for (let i = 0; i < size; i++) {
+                    let [a, b] = queue.shift();
+                    if (a === targetX && b === targetY) return round; // 找到目标点，返回轮次
+
+                    // 遍历四个方向
+                    for (let j = 0; j < 4; j++) {
+                        let nextX = a + dir[j][0];
+                        let nextY = b + dir[j][1];
+
+                        // 检查边界条件和是否访问过
+                        if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && !visited[nextX][nextY] && graph[nextX][nextY] !== -1) {
+                            queue.push([nextX, nextY]);
+                            visited[nextX][nextY] = 1; // 标记为已访问
+                        }
+                    }
+                }
+                round++; // 增加轮次
+            }
+
+            return -1; // 如果没有找到目标点，返回 -1
+        };
+
+        // 执行 BFS 并输出结果
+        let res = bfs(graph, startX, startY, targetX, targetY);
+        console.log("最少轮次为: ", res);
+    </script>
+</body>
+
+</html>
