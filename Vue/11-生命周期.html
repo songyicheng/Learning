@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Vue.js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <h2 :style="{opacity}"> Vue 生命周期</h2>
+    </div>
+    <script>
+        Vue.config.devtools = true;  //生产版本需要改配置
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            methods: {
+
+            },
+            // Vue 完成模板解析并把初始的真实 DOM 元素放入页面后（挂载完毕），调用 mounted
+            mounted() {
+                    setInterval(() => {
+                        this.opacity -= 0.01
+                        if (this.opacity <= 0) { this.opacity = 1 }
+                    }, 16);
+            },
+        })
+
+        // 通过外部定时器实现
+        /*         setInterval(() => {
+                    vm.opacity -= 0.01
+                    if (vm.opacity <= 0) { vm.opacity = 1 }
+                }, 16); */
+    </script>
+</body>
+
+</html>
