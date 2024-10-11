@@ -11,23 +11,40 @@
 <body>
     <div id="root">
         <h2 :style="{opacity}"> Vue 生命周期</h2>
+        <button @click="stop">软停止</button>
+        <button @click="stopForce">硬停止</button>
     </div>
     <script>
         Vue.config.devtools = true;  //生产版本需要改配置
         const vm = new Vue({
             el: '#root',
+            //1.template 会直接替换原容器内所有内容 包括<div id="root"></div>
+            //2.template 中只能存在一个根节点
+/*          template: `  
+            <div>
+                <h2 :style="{opacity}"> Vue 生命周期</h2>
+            </div>
+            `, */
             data: {
                 opacity: 1
             },
             methods: {
-
+                stop(){
+                   clearInterval(this.timer) 
+                },
+                stopForce(){
+                    this.$destroy()
+                }
             },
             // Vue 完成模板解析并把初始的真实 DOM 元素放入页面后（挂载完毕），调用 mounted
             mounted() {
-                    setInterval(() => {
-                        this.opacity -= 0.01
-                        if (this.opacity <= 0) { this.opacity = 1 }
-                    }, 16);
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) { this.opacity = 1 }
+                }, 16);
+            },
+            beforeDestroy() {
+                clearInterval(this.timer)
             },
         })
 
