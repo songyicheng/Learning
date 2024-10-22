@@ -16,9 +16,3 @@
         },
     }
 </script>
-
-<style>
-.demo {
-    background-color: orange;
-}
-</style>
