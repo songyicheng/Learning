@@ -1,0 +1,15 @@
+const input = 'Show me the code'.split(' ')
+let first = input[0].split('')
+input.shift()
+first[0] = first[0].toLowerCase()
+first = first.join('')
+input.unshift(first)
+input.sort((a, b) => {
+    return a.length - b.length
+})
+first = input[0].split('')
+input.shift()
+first[0] = first[0].toUpperCase()
+first = first.join('')
+input.unshift(first)
+console.log(input.join(' '))
