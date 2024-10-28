@@ -2,7 +2,7 @@
     <div>
         <banner></banner>
         <div>
-            <router-link active-class='active' to="/about">About</router-link>
+            <router-link replace active-class='active' to="/about">About</router-link>
             <router-link active-class='active' to="/hello">Hello</router-link>
         </div>
         <div class="panel">

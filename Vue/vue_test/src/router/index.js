@@ -6,7 +6,8 @@ import News from "@/pages/News.vue"
 
 export default new VueRouter({
     routes: [
-        {
+        {   
+            name:'abc',
             path: '/about',
             component: About
         },
@@ -21,6 +22,10 @@ export default new VueRouter({
                 {
                     path:'message',
                     component: Message,
+                    props:{
+                        a:1,
+                        b:'hello'
+                    }
                 },
             ]
         },
